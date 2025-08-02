@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bert-umap-hdbscan"
+version = "0.1.0"
+description = "BERT + UMAP + HDBSCAN Text Clustering Application"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [
+    {name = "mutomasa", email = "mutomasa@example.com"}
+]
+keywords = ["bert", "umap", "hdbscan", "clustering", "nlp", "streamlit"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "streamlit>=1.28.0",
+    "transformers>=4.30.0",
+    "torch>=2.0.0",
+    "umap-learn>=0.5.3",
+    "hdbscan>=0.8.29",
+    "scikit-learn>=1.3.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "plotly>=5.15.0",
+    "sentence-transformers>=2.2.2",
+    "nltk>=3.8.1",
+    "wordcloud>=1.9.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/mutomasa/bert_umap_hdbscan"
+Repository = "https://github.com/mutomasa/bert_umap_hdbscan.git"
+Issues = "https://github.com/mutomasa/bert_umap_hdbscan/issues"
+
+[project.scripts]
+bert-clustering = "bert_umap_hdbscan.app:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"] 
